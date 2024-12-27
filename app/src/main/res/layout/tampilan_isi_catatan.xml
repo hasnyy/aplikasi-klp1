@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/btnBack"
+          android:layout_centerVertical="true"
+          android:layout_width="43dp"
+          android:layout_height="43dp"
+          android:src="@drawable/back"/>
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/done"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:layout_below="@id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@id/pilihWarna">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="JUDUL"
+            android:textSize="40dp"
+            android:background="#00FFFFFF"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21 Oktober 2024"
+            android:textSize="17dp"
+            android:textColor="@color/black"/>
+        <View
+            android:layout_marginVertical="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#98121212"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="ISI"
+            android:gravity="top"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:background="#00FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/background_color"
+        android:elevation="20dp"
+        android:id="@+id/pilihWarna">
+
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginRight="20dp"
+            app:cardBackgroundColor="#D0E8C5"
+            app:cardCornerRadius="10dp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginRight="15dp"
+            app:cardBackgroundColor="#BFECFF"
+            app:cardCornerRadius="10dp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="5dp"
+            app:cardBackgroundColor="#CDC1FF"
+            app:cardCornerRadius="10dp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+            app:cardBackgroundColor="#FFF6E3"
+            app:cardCornerRadius="10dp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            app:cardBackgroundColor="#FFCCEA"
+            app:cardCornerRadius="10dp"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
