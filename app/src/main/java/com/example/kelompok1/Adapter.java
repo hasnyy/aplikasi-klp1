@@ -40,6 +40,8 @@ public class Adapter extends BaseAdapter {
             convertView= LayoutInflater.from(context).inflate(R.layout.model_item_catatan,parent,false);
         }
 
+        String nama = "";
+
         ModelCatatan catatans=catatan.get(position);
         TextView judul=convertView.findViewById(R.id.judul);
         TextView isicatatan=convertView.findViewById(R.id.isicatatan);
