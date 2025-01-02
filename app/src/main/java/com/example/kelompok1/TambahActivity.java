@@ -1,15 +1,17 @@
 package com.example.kelompok1;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.concurrent.atomic.AtomicReference;
-
-public class MainActivity extends AppCompatActivity {
+public class TambahActivity extends AppCompatActivity {
+    private String background;
+    ModelCatatan modelcatatan; //deklarasi model
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -22,13 +24,16 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
 
+        EditText judul = findViewById(R.id.Judul);
+        EditText isi = findViewById(R.id.isiCatatan);
+        TextView tanggal = findViewById(R.id.Tanggal);
+        ImageView simpan= findViewById(R.id.simpan);
 
         ImageView warna1 = findViewById(R.id.warna1);
         ImageView warna2 = findViewById(R.id.warna2);
         ImageView warna3 = findViewById(R.id.warna3);
         ImageView warna4 = findViewById(R.id.warna4);
         ImageView warna5 = findViewById(R.id.warna5);
-        AtomicReference<String> background = new AtomicReference<>("");
 
         warna1.setOnClickListener(v -> {
             Toast.makeText(this, "Warna 1 dipilih", Toast.LENGTH_SHORT).show();
@@ -37,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(0);
             warna5.setImageResource(0);
-            background.set("#D0E8C5");
-        });
+            background = "#D0E8C5";
 
+        });
 
         warna2.setOnClickListener(v -> {
             Toast.makeText(this, "Warna 2 dipilih", Toast.LENGTH_SHORT).show();
@@ -48,9 +53,8 @@ public class MainActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(0);
             warna5.setImageResource(0);
-            background.set("#BFECFF");
+            background = "#BFECFF";
         });
-
 
         warna3.setOnClickListener(v -> {
             Toast.makeText(this, "Warna 3 dipilih", Toast.LENGTH_SHORT).show();
@@ -59,9 +63,8 @@ public class MainActivity extends AppCompatActivity {
             warna3.setImageResource(R.drawable.done);
             warna4.setImageResource(0);
             warna5.setImageResource(0);
-            background.set("#CDC1FF");
+            background = "#CDC1FF";
         });
-
 
         warna4.setOnClickListener(v -> {
             Toast.makeText(this, "Warna 4 dipilih", Toast.LENGTH_SHORT).show();
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(R.drawable.done);
             warna5.setImageResource(0);
-            background.set("#FFF6E3");
+            background  = "#FFF6E3";
         });
 
 
@@ -81,7 +84,17 @@ public class MainActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(0);
             warna5.setImageResource(R.drawable.done);
-            background.set("#FFCCEA");
+            background = "#FFCCEA";
+        });
+
+        simpan.setOnClickListener(v -> {
+            String jdl = judul.getText().toString();
+            String is = isi.getText().toString();
+            String tgl = tanggal.getText().toString();
+            modelcatatan = new ModelCatatan(jdl,is,tgl); //Inisialisasi dan pemberian nilai ke varibake model catatan
+            Home.data = modelcatatan; //Pemberian nilai ke varibel static data pada class Home
+            setResult(RESULT_OK); //Mengirimkan kode result ke activity Home
+            finish();
         });
     }
 }

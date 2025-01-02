@@ -15,7 +15,6 @@ public class Adapter extends BaseAdapter {
     public Adapter(Context context, List<ModelCatatan> catatan){
         this.context=context;
         this.catatan=catatan;
-
     }
 
     @Override

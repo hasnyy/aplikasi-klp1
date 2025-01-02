@@ -4,7 +4,7 @@ public class ModelCatatan {
     String judul, isi, tanggal;
 
     public ModelCatatan(String judul, String isi, String tanggal){
-        this.judul=judul;
+        this.judul = judul;
         this.isi=isi;
         this.tanggal=tanggal;
     }

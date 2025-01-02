@@ -18,6 +18,7 @@
           android:src="@drawable/back"/>
 
         <ImageView
+            android:id="@+id/simpan"
             android:layout_centerVertical="true"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -33,6 +34,7 @@
         android:orientation="vertical"
         android:layout_above="@id/pilihWarna">
         <EditText
+            android:id="@+id/Judul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="JUDUL"
@@ -43,6 +45,7 @@
             android:imeOptions="actionDone"
             android:inputType="text"/>
         <TextView
+            android:id="@+id/Tanggal"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,6 +58,7 @@
             android:layout_height="2dp"
             android:background="#98121212"/>
         <EditText
+            android:id="@+id/isiCatatan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="ISI"
