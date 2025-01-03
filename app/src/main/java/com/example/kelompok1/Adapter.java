@@ -1,10 +1,12 @@
 package com.example.kelompok1;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.List;
 
@@ -42,10 +44,11 @@ public class Adapter extends BaseAdapter {
         TextView judul=convertView.findViewById(R.id.judul);
         TextView isicatatan=convertView.findViewById(R.id.isicatatan);
         TextView tanggal=convertView.findViewById(R.id.tanggal);
-
+        RelativeLayout background=convertView.findViewById(R.id.background);
         judul.setText(catatans.getJudul());
         isicatatan.setText(catatans.getIsi());
         tanggal.setText(catatans.getTanggal());
+        background.setBackgroundColor(Color.parseColor(catatans.getBackground()));
         return convertView;
     }
 }

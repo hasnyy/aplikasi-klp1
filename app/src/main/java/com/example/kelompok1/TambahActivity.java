@@ -20,6 +20,7 @@ public class TambahActivity extends AppCompatActivity {
         setContentView(R.layout.tampilan_isi_catatan);
 
         ImageView btnBack = findViewById(R.id.btnBack);
+
         btnBack.setOnClickListener(v -> {
             finish();
         });
@@ -91,7 +92,7 @@ public class TambahActivity extends AppCompatActivity {
             String jdl = judul.getText().toString();
             String is = isi.getText().toString();
             String tgl = tanggal.getText().toString();
-            modelcatatan = new ModelCatatan(jdl,is,tgl); //Inisialisasi dan pemberian nilai ke varibake model catatan
+            modelcatatan = new ModelCatatan(jdl,is,tgl,background); //Inisialisasi dan pemberian nilai ke varibake model catatan
             Home.data = modelcatatan; //Pemberian nilai ke varibel static data pada class Home
             setResult(RESULT_OK); //Mengirimkan kode result ke activity Home
             finish();

@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Home extends AppCompatActivity{
-    ActivityResultLauncher<Intent> mGetContent;
+    ActivityResultLauncher<Intent> event;
     GridView gridview;
     List<ModelCatatan> modelcatatan;
     Adapter adapter;
@@ -27,15 +25,15 @@ public class Home extends AppCompatActivity{
         setContentView(R.layout.activity_home);
         ImageView btnTambah = findViewById(R.id.btnTambah);
         btnTambah.setOnClickListener(v -> {
-            mGetContent.launch(new Intent(this, TambahActivity.class));
+            event.launch(new Intent(this, TambahActivity.class));
         });
 
         modelcatatan=new ArrayList<>();
         gridview=findViewById(R.id.gridCatatan);
-        adapter=new Adapter(this, modelcatatan);
+        adapter= new Adapter(this, modelcatatan);
         gridview.setAdapter(adapter);
 
-        mGetContent = registerForActivityResult(
+        event = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result->{
                     if(result.getResultCode() == RESULT_OK){
