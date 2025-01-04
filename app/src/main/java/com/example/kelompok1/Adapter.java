@@ -1,6 +1,7 @@
 package com.example.kelompok1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,30 @@ public class Adapter extends BaseAdapter {
         judul.setText(catatans.getJudul());
         isicatatan.setText(catatans.getIsi());
         tanggal.setText(catatans.getTanggal());
-        background.setBackgroundColor(Color.parseColor(catatans.getBackground()));
+        String bg = catatans.getBackground();
+        if("warna1".equals(bg)){
+            background.setBackgroundResource(R.drawable.warna1);
+        }else if("warna2".equals(bg)){
+            background.setBackgroundResource(R.drawable.warna2);
+        }else if("warna3".equals(bg)){
+            background.setBackgroundResource(R.drawable.warna3);
+        }else if("warna4".equals(bg)){
+            background.setBackgroundResource(R.drawable.warna4);
+        }else if("warna5".equals(bg)){
+            background.setBackgroundResource(R.drawable.warna5);
+        }else{
+            background.setBackgroundResource(R.drawable.warna6);
+        }
+
+        convertView.setOnClickListener(v -> {
+            Intent intent = new Intent(context,EditActivity.class);
+            intent.putExtra("judul",catatans.getJudul());
+            intent.putExtra("isi",catatans.getIsi());
+            intent.putExtra("tanggal",catatans.getTanggal());
+            intent.putExtra("bg",bg);
+            context.startActivity(intent);
+        });
+
         return convertView;
     }
 }

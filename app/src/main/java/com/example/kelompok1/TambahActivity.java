@@ -2,6 +2,7 @@ package com.example.kelompok1;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -9,9 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class TambahActivity extends AppCompatActivity {
     private String background;
-    ModelCatatan modelcatatan; //deklarasi model
+    ModelCatatan modelcatatan;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,7 +47,7 @@ public class TambahActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(0);
             warna5.setImageResource(0);
-            background = "#D0E8C5";
+            background = "warna1";
 
         });
 
@@ -54,7 +58,7 @@ public class TambahActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(0);
             warna5.setImageResource(0);
-            background = "#BFECFF";
+            background = "warna2";
         });
 
         warna3.setOnClickListener(v -> {
@@ -64,7 +68,7 @@ public class TambahActivity extends AppCompatActivity {
             warna3.setImageResource(R.drawable.done);
             warna4.setImageResource(0);
             warna5.setImageResource(0);
-            background = "#CDC1FF";
+            background = "warna3";
         });
 
         warna4.setOnClickListener(v -> {
@@ -74,7 +78,7 @@ public class TambahActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(R.drawable.done);
             warna5.setImageResource(0);
-            background  = "#FFF6E3";
+            background  = "warna4";
         });
 
 
@@ -85,13 +89,31 @@ public class TambahActivity extends AppCompatActivity {
             warna3.setImageResource(0);
             warna4.setImageResource(0);
             warna5.setImageResource(R.drawable.done);
-            background = "#FFCCEA";
+            background = "warna5";
         });
+
+        LocalDate date = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            date = LocalDate.now();
+        }
+
+        DateTimeFormatter format = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            format = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        }
+
+        String tgl;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            tgl = date.format(format);
+        }else {
+            tgl = null;
+        }
+
+        tanggal.setText(tgl);
 
         simpan.setOnClickListener(v -> {
             String jdl = judul.getText().toString();
             String is = isi.getText().toString();
-            String tgl = tanggal.getText().toString();
             modelcatatan = new ModelCatatan(jdl,is,tgl,background); //Inisialisasi dan pemberian nilai ke varibake model catatan
             Home.data = modelcatatan; //Pemberian nilai ke varibel static data pada class Home
             setResult(RESULT_OK); //Mengirimkan kode result ke activity Home
