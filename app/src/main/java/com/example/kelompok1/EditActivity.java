@@ -7,12 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -40,6 +35,8 @@ public class EditActivity extends AppCompatActivity {
         EditText isi = findViewById(R.id.isiCatatanEdit);
         TextView tanggal = findViewById(R.id.TanggalEdit);
         ImageView simpan= findViewById(R.id.simpanEdit);
+        ImageView hapus= findViewById(R.id.hapusEdit);
+
 
         judul.setText(getIntent().getStringExtra("judul"));
         isi.setText(getIntent().getStringExtra("isi"));
@@ -54,14 +51,19 @@ public class EditActivity extends AppCompatActivity {
         String bgedit = getIntent().getStringExtra("bg");
         if("warna1".equals(bgedit)){
             warna1.setImageResource(R.drawable.done);
+            background = "warna1";
         } else if ("warna2".equals(bgedit)) {
             warna2.setImageResource(R.drawable.done);
+            background = "warna2";
         } else if ("warna3".equals(bgedit)) {
             warna3.setImageResource(R.drawable.done);
+            background = "warna3";
         } else if ("warna4".equals(bgedit)) {
             warna4.setImageResource(R.drawable.done);
+            background = "warna4";
         }  else if ("warna5".equals(bgedit)) {
             warna5.setImageResource(R.drawable.done);
+            background = "warna5";
         }
 
 
@@ -135,5 +137,23 @@ public class EditActivity extends AppCompatActivity {
         }else {
             tgl = null;
         }
+
+        int index = getIntent().getIntExtra("index",0);
+
+        hapus.setOnClickListener(v -> {
+            Home.index = index;
+            Home.ishapus = true;
+            finish();
+        });
+
+        simpan.setOnClickListener(v -> {
+            Home.index = index;
+            String jdl = judul.getText().toString();
+            String is = isi.getText().toString();
+            Home.dataEdit = new ModelCatatan(jdl,is,tgl,background);
+            Home.isEdit = true;
+            finish();
+        });
+
     }
 }

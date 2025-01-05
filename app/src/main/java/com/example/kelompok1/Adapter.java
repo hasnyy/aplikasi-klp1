@@ -66,6 +66,7 @@ public class Adapter extends BaseAdapter {
 
         convertView.setOnClickListener(v -> {
             Intent intent = new Intent(context,EditActivity.class);
+            intent.putExtra("index",position);
             intent.putExtra("judul",catatans.getJudul());
             intent.putExtra("isi",catatans.getIsi());
             intent.putExtra("tanggal",catatans.getTanggal());

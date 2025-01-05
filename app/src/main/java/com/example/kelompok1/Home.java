@@ -17,6 +17,12 @@ public class Home extends AppCompatActivity{
     List<ModelCatatan> modelcatatan;
     Adapter adapter;
     public static ModelCatatan data;
+    public static int index;
+    public static boolean ishapus = false;
+
+    public static boolean isEdit = false;
+
+    public static ModelCatatan dataEdit;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,8 +44,31 @@ public class Home extends AppCompatActivity{
                 result->{
                     if(result.getResultCode() == RESULT_OK){
                         modelcatatan.add(data);
-                        gridview.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
                     }
                 });
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        if(ishapus){
+            modelcatatan.remove(index);
+            adapter.notifyDataSetChanged();
+            ishapus = false;
+        }
+
+        if(isEdit){
+            ModelCatatan editSimpan = modelcatatan.get(index);
+            editSimpan.setJudul(dataEdit.getJudul());
+            editSimpan.setIsi(dataEdit.getIsi());
+            editSimpan.setTanggal(dataEdit.getTanggal());
+            editSimpan.setBackground(dataEdit.getBackground());
+            adapter.notifyDataSetChanged();
+            isEdit = false;
+        }
+
+    }
+
 }
