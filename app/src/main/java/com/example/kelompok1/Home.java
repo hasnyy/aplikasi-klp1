@@ -34,6 +34,8 @@ public class Home extends AppCompatActivity{
             event.launch(new Intent(this, TambahActivity.class));
         });
 
+
+        //ghvdfygfh
         modelcatatan=new ArrayList<>();
         gridview=findViewById(R.id.gridCatatan);
         adapter= new Adapter(this, modelcatatan);
