@@ -13,7 +13,9 @@
         android:text="Judul"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 
     <TextView
         android:id="@+id/isicatatan"
@@ -23,6 +25,8 @@
         android:textSize="17dp"
         android:layout_below="@+id/judul"
         android:textColor="@color/black"
+        android:maxLines="2"
+        android:ellipsize="end"
         />
 
     <TextView

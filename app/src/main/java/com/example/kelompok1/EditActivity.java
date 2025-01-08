@@ -8,13 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 public class EditActivity extends AppCompatActivity {
-
     private String background;
     ModelCatatan modelcatatan;
 
@@ -24,24 +21,18 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-
-
-        ImageView btnBack = findViewById(R.id.btnBackEdit);
-
-        btnBack.setOnClickListener(v -> {
-            finish();
-        });
-
         EditText judul = findViewById(R.id.JudulEdit);
         EditText isi = findViewById(R.id.isiCatatanEdit);
         TextView tanggal = findViewById(R.id.TanggalEdit);
-
+        TextView jamTampil = findViewById(R.id.jam);
+        ImageView btnBack = findViewById(R.id.btnBackEdit);
         ImageView simpan= findViewById(R.id.simpanEdit);
         ImageView hapus= findViewById(R.id.hapusEdit);
 
         String isiJudul = getIntent().getStringExtra("judul");
         String isiCatatan = getIntent().getStringExtra("isi");
         String isiTanggal = getIntent().getStringExtra("tanggal");
+        String isiJam = getIntent().getStringExtra("jam");
 
         if("Belum Ada Judul".equals(isiJudul)){
             isiJudul = null;
@@ -53,6 +44,7 @@ public class EditActivity extends AppCompatActivity {
         judul.setText(isiJudul);
         isi.setText(isiCatatan);
         tanggal.setText(isiTanggal);
+        jamTampil.setText(isiJam);
 
         ImageView warna1 = findViewById(R.id.warna1);
         ImageView warna2 = findViewById(R.id.warna2);
@@ -77,8 +69,6 @@ public class EditActivity extends AppCompatActivity {
             warna5.setImageResource(R.drawable.done);
             background = "warna5";
         }
-
-
 
 
         warna1.setOnClickListener(v -> {
@@ -166,8 +156,11 @@ public class EditActivity extends AppCompatActivity {
             menit = 0;
         }
 
-        int index = getIntent().getIntExtra("index",0);
+        btnBack.setOnClickListener(v -> {
+            finish();
+        });
 
+        int index = getIntent().getIntExtra("index",0);
         hapus.setOnClickListener(v -> {
             Home.index = index;
             Home.ishapus = true;

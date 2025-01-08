@@ -24,15 +24,10 @@ public class TambahActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tampilan_isi_catatan);
 
-        ImageView btnBack = findViewById(R.id.btnBack);
-
-        btnBack.setOnClickListener(v -> {
-            finish();
-        });
-
         EditText judul = findViewById(R.id.Judul);
         EditText isi = findViewById(R.id.isiCatatan);
         TextView tanggal = findViewById(R.id.Tanggal);
+        ImageView btnBack = findViewById(R.id.btnBack);
         ImageView simpan= findViewById(R.id.simpan);
 
         ImageView warna1 = findViewById(R.id.warna1);
@@ -128,6 +123,10 @@ public class TambahActivity extends AppCompatActivity {
 
         tanggal.setText(tgl);
 
+        btnBack.setOnClickListener(v -> {
+            finish();
+        });
+
         simpan.setOnClickListener(v -> {
             String jdl = judul.getText().toString();
             String is = isi.getText().toString();
@@ -139,7 +138,7 @@ public class TambahActivity extends AppCompatActivity {
             }
                 modelcatatan = new ModelCatatan(jdl,is,tgl,background,jam+":"+menit);
             Home.data = modelcatatan;
-            setResult(RESULT_OK);
+            Home.isSimpan = true;
             finish();
         });
     }
