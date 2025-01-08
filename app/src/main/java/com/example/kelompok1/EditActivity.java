@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class EditActivity extends AppCompatActivity {
@@ -34,13 +35,24 @@ public class EditActivity extends AppCompatActivity {
         EditText judul = findViewById(R.id.JudulEdit);
         EditText isi = findViewById(R.id.isiCatatanEdit);
         TextView tanggal = findViewById(R.id.TanggalEdit);
+
         ImageView simpan= findViewById(R.id.simpanEdit);
         ImageView hapus= findViewById(R.id.hapusEdit);
 
+        String isiJudul = getIntent().getStringExtra("judul");
+        String isiCatatan = getIntent().getStringExtra("isi");
+        String isiTanggal = getIntent().getStringExtra("tanggal");
 
-        judul.setText(getIntent().getStringExtra("judul"));
-        isi.setText(getIntent().getStringExtra("isi"));
-        tanggal.setText(getIntent().getStringExtra("tanggal"));
+        if("Belum Ada Judul".equals(isiJudul)){
+            isiJudul = null;
+        }
+        if("Belum Ada Isi".equals(isiCatatan)){
+            isiCatatan = null;
+        }
+
+        judul.setText(isiJudul);
+        isi.setText(isiCatatan);
+        tanggal.setText(isiTanggal);
 
         ImageView warna1 = findViewById(R.id.warna1);
         ImageView warna2 = findViewById(R.id.warna2);
@@ -138,6 +150,22 @@ public class EditActivity extends AppCompatActivity {
             tgl = null;
         }
 
+        LocalDateTime time = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            time = LocalDateTime.now();
+        }
+        int jam, menit;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            jam = time.getHour();
+        }else{
+            jam = 0;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            menit = time.getMinute();
+        }else{
+            menit = 0;
+        }
+
         int index = getIntent().getIntExtra("index",0);
 
         hapus.setOnClickListener(v -> {
@@ -150,7 +178,13 @@ public class EditActivity extends AppCompatActivity {
             Home.index = index;
             String jdl = judul.getText().toString();
             String is = isi.getText().toString();
-            Home.dataEdit = new ModelCatatan(jdl,is,tgl,background);
+            if(jdl.isEmpty()){
+                jdl = "Belum Ada Judul";
+            }
+            if(is.isEmpty()){
+                is = "Belum Ada Isi";
+            }
+            Home.dataEdit = new ModelCatatan(jdl,is,tgl,background,jam+":"+menit);
             Home.isEdit = true;
             finish();
         });

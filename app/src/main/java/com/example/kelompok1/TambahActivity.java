@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class TambahActivity extends AppCompatActivity {
@@ -109,14 +110,36 @@ public class TambahActivity extends AppCompatActivity {
             tgl = null;
         }
 
+        LocalDateTime time = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            time = LocalDateTime.now();
+        }
+        int jam, menit;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            jam = time.getHour();
+        }else{
+            jam = 0;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            menit = time.getMinute();
+        }else{
+            menit = 0;
+        }
+
         tanggal.setText(tgl);
 
         simpan.setOnClickListener(v -> {
             String jdl = judul.getText().toString();
             String is = isi.getText().toString();
-            modelcatatan = new ModelCatatan(jdl,is,tgl,background); //Inisialisasi dan pemberian nilai ke varibake model catatan
-            Home.data = modelcatatan; //Pemberian nilai ke varibel static data pada class Home
-            setResult(RESULT_OK); //Mengirimkan kode result ke activity Home
+            if(jdl.isEmpty()){
+                jdl = "Belum Ada Judul";
+            }
+            if(is.isEmpty()){
+                is = "Belum Ada Isi";
+            }
+                modelcatatan = new ModelCatatan(jdl,is,tgl,background,jam+":"+menit);
+            Home.data = modelcatatan;
+            setResult(RESULT_OK);
             finish();
         });
     }

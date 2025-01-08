@@ -1,13 +1,14 @@
 package com.example.kelompok1;
 
 public class ModelCatatan {
-    String judul, isi, tanggal, background;
+    String judul, isi, tanggal, background, jam ;
 
-    public ModelCatatan(String judul, String isi, String tanggal, String bg){
+    public ModelCatatan(String judul, String isi, String tanggal, String bg, String jam){
         this.judul = judul;
         this.isi=isi;
         this.tanggal=tanggal;
         this.background=bg;
+        this.jam=jam;
     }
 
     public String getIsi() {
@@ -20,6 +21,10 @@ public class ModelCatatan {
 
     public String getTanggal() {
         return tanggal;
+    }
+
+    public String getJam() {
+        return jam;
     }
 
     public String getBackground() {
@@ -40,5 +45,9 @@ public class ModelCatatan {
 
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
+    }
+
+    public void setJam(String jam) {
+        this.jam = jam;
     }
 }

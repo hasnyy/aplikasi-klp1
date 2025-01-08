@@ -61,6 +61,14 @@
             android:text="21 Oktober 2024"
             android:textSize="17dp"
             android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/jam"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21:00"
+            android:textSize="17dp"
+            android:textColor="@color/black"/>
         <View
             android:layout_marginVertical="15dp"
             android:layout_width="match_parent"

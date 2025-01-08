@@ -45,10 +45,12 @@ public class Adapter extends BaseAdapter {
         TextView judul=convertView.findViewById(R.id.judul);
         TextView isicatatan=convertView.findViewById(R.id.isicatatan);
         TextView tanggal=convertView.findViewById(R.id.tanggal);
+        TextView jam = convertView.findViewById(R.id.jam);
         RelativeLayout background=convertView.findViewById(R.id.background);
         judul.setText(catatans.getJudul());
         isicatatan.setText(catatans.getIsi());
         tanggal.setText(catatans.getTanggal());
+        jam.setText(catatans.getJam());
         String bg = catatans.getBackground();
         if("warna1".equals(bg)){
             background.setBackgroundResource(R.drawable.warna1);
@@ -70,6 +72,7 @@ public class Adapter extends BaseAdapter {
             intent.putExtra("judul",catatans.getJudul());
             intent.putExtra("isi",catatans.getIsi());
             intent.putExtra("tanggal",catatans.getTanggal());
+            intent.putExtra("jam",catatans.getJam());
             intent.putExtra("bg",bg);
             context.startActivity(intent);
         });
