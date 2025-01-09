@@ -2,20 +2,19 @@ package com.example.kelompok1;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Adapter extends BaseAdapter {
     private Context context;
-    private List<ModelCatatan> catatan;
+    private ArrayList<ModelCatatan> catatan;
 
-    public Adapter(Context context, List<ModelCatatan> catatan){
+    public Adapter(Context context, ArrayList<ModelCatatan> catatan){
         this.context=context;
         this.catatan=catatan;
     }

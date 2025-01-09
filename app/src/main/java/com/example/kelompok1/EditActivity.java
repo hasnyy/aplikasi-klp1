@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import java.time.LocalDate;
@@ -15,7 +14,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 public class EditActivity extends AppCompatActivity {
     private String background;
-    ModelCatatan modelcatatan;
 
     @SuppressLint("MissingInflatedId")
     @Override

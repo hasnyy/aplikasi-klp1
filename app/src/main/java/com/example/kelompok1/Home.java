@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Home extends AppCompatActivity{
     GridView gridview;
-    List<ModelCatatan> modelcatatan;
+    ArrayList<ModelCatatan> modelcatatan;
     Adapter adapter;
     public static boolean isSimpan = false;
     public static ModelCatatan data;
