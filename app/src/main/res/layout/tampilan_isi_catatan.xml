@@ -87,8 +87,7 @@
             android:layout_height="45dp"
             android:layout_marginRight="20dp"
             app:cardBackgroundColor="#D0E8C5"
-            app:cardCornerRadius="10dp"
-            >
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/warna1"
@@ -105,8 +104,7 @@
             android:layout_height="45dp"
             android:layout_marginRight="15dp"
             app:cardBackgroundColor="#BFECFF"
-            app:cardCornerRadius="10dp"
-            >
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/warna2"
@@ -123,8 +121,7 @@
             android:layout_height="45dp"
             android:layout_marginHorizontal="5dp"
             app:cardBackgroundColor="#CDC1FF"
-            app:cardCornerRadius="10dp"
-            >
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/warna3"
@@ -141,8 +138,7 @@
             android:layout_height="45dp"
             android:layout_marginLeft="15dp"
             app:cardBackgroundColor="#FFF6E3"
-            app:cardCornerRadius="10dp"
-            >
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/warna4"
@@ -159,8 +155,7 @@
             android:layout_height="45dp"
             android:layout_marginLeft="20dp"
             app:cardBackgroundColor="#FFCCEA"
-            app:cardCornerRadius="10dp"
-            >
+            app:cardCornerRadius="10dp">
 
             <ImageView
                 android:id="@+id/warna5"
