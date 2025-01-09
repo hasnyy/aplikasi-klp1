@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -162,9 +164,7 @@ public class EditActivity extends AppCompatActivity {
 
         int index = getIntent().getIntExtra("index",0);
         hapus.setOnClickListener(v -> {
-            Home.index = index;
-            Home.ishapus = true;
-            finish();
+            konfirmasi(index);
         });
 
         simpan.setOnClickListener(v -> {
@@ -181,6 +181,22 @@ public class EditActivity extends AppCompatActivity {
             Home.isEdit = true;
             finish();
         });
-
     }
+
+    private void konfirmasi(int index){
+        AlertDialog.Builder bulider = new AlertDialog.Builder(this);
+        bulider.setTitle("Konfirmasi Hapus?");
+        String[] pilihan={"Ya","Tidak"};
+        bulider.setItems(pilihan,((dialog, which) -> {
+            if(which==0){
+                Home.index = index;
+                Home.ishapus = true;
+                finish();
+            }else{
+                dialog.dismiss();
+            }
+        }));
+       bulider.show();
+    }
+
 }
