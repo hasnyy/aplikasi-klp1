@@ -5,11 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.ImageView;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Home extends AppCompatActivity{
     GridView gridview;
@@ -19,9 +16,7 @@ public class Home extends AppCompatActivity{
     public static ModelCatatan data;
     public static int index;
     public static boolean ishapus = false;
-
     public static boolean isEdit = false;
-
     public static ModelCatatan dataEdit;
 
     @SuppressLint("MissingInflatedId")

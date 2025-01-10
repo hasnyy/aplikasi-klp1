@@ -51,6 +51,7 @@ public class Adapter extends BaseAdapter {
         tanggal.setText(catatans.getTanggal());
         jam.setText(catatans.getJam());
         String bg = catatans.getBackground();
+
         if("warna1".equals(bg)){
             background.setBackgroundResource(R.drawable.warna1);
         }else if("warna2".equals(bg)){

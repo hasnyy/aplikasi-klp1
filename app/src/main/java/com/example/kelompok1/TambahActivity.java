@@ -1,7 +1,6 @@
 package com.example.kelompok1;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -9,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -98,6 +96,7 @@ public class TambahActivity extends AppCompatActivity {
             format = DateTimeFormatter.ofPattern("dd MMMM yyyy");
         }
 
+
         String tgl;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             tgl = date.format(format);
@@ -133,10 +132,11 @@ public class TambahActivity extends AppCompatActivity {
             if(jdl.isEmpty()){
                 jdl = "Belum Ada Judul";
             }
+
             if(is.isEmpty()){
                 is = "Belum Ada Isi";
             }
-                modelcatatan = new ModelCatatan(jdl,is,tgl,background,jam+":"+menit);
+            modelcatatan = new ModelCatatan(jdl,is,tgl,background,jam+":"+menit);
             Home.data = modelcatatan;
             Home.isSimpan = true;
             finish();

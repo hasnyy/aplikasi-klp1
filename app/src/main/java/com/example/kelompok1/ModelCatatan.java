@@ -1,7 +1,7 @@
 package com.example.kelompok1;
 
 public class ModelCatatan {
-    String judul, isi, tanggal, background, jam ;
+    String judul, isi, tanggal, background, jam;
 
     public ModelCatatan(String judul, String isi, String tanggal, String bg, String jam){
         this.judul = judul;
