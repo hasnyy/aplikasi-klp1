@@ -70,7 +70,6 @@ public class EditActivity extends AppCompatActivity {
             background = "warna5";
         }
 
-
         warna1.setOnClickListener(v -> {
             Toast.makeText(this, "Warna 1 dipilih", Toast.LENGTH_SHORT).show();
             warna1.setImageResource(R.drawable.done);
@@ -79,7 +78,6 @@ public class EditActivity extends AppCompatActivity {
             warna4.setImageResource(0);
             warna5.setImageResource(0);
             background = "warna1";
-
         });
 
         warna2.setOnClickListener(v -> {
@@ -111,7 +109,6 @@ public class EditActivity extends AppCompatActivity {
             warna5.setImageResource(0);
             background  = "warna4";
         });
-
 
         warna5.setOnClickListener(v -> {
             Toast.makeText(this, "Warna 5 dipilih", Toast.LENGTH_SHORT).show();
